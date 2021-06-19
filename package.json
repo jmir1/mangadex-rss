@@ -1,0 +1,16 @@
+{
+  "name": "mangadex-rss",
+  "version": "1.0.0",
+  "description": "rss feed for mangadex",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "jmir1",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
