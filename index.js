@@ -18,27 +18,11 @@ const rss_prefix = `<?xml version="1.0" encoding="utf-8"?>
 const rss_suffix = `</channel>
 </rss>`
 app.get("/", (req, res) => {
-    latestapi(res)
+    res.send("joe who?")
 })
 app.get("/rss", (req, res) => {
     rss(res)
 })
-
-async function latestapi(res) {
-    const options = {
-        uri: "https://api.mangadex.org/manga",
-        qs: {
-            "order[updatedAt]": "desc" // -> uri + '?order[updatedAt]=desc'
-        },
-        //headers: {
-        //    'User-Agent': 'Request-Promise'
-        //},
-        json: true // Automatically parses the JSON string in the response
-    };
-    const response = await request(options)
-    console.log(response)
-    res.send(response)
-}
 async function latestapi() {
     const options = {
         uri: "https://api.mangadex.org/manga",
