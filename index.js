@@ -43,8 +43,9 @@ async function latestapi() {
         <title>`
         item += resp.results[manga].data.attributes.title.en + `</title>
         <description>`
-        let desc = resp.results[manga].data.attributes.description.en
-        item += desc.substr(0, desc.indexOf("[hr]")>0?desc.indexOf("[hr]"):desc.length) + `</description>
+        let desc = resp.results[manga].data.attributes.description
+        let lang = desc.en != undefined ? desc.en : desc[Object.keys(desc)[0]]
+        item += lang.substr(0, lang.indexOf("[hr]")>0?lang.indexOf("[hr]"):lang.length) + `</description>
         <link>`
         item += "https://mangadex.org/title/" + resp.results[manga].data.id + `</link>
         <pubDate>`
