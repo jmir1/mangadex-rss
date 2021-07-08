@@ -12,7 +12,7 @@ const rss_prefix = `<?xml version="1.0" encoding="utf-8"?>
     <description>The latest updates on Mangadex.org</description>
     <copyright>Copyright bofa</copyright>
     <language>en-US</language>
-    <ttl>60</ttl>
+    <ttl>1</ttl>
     <lastBuildDate>` + Date().toString("en-US") + `</lastBuildDate>
     `
 const rss_suffix = `</channel>
