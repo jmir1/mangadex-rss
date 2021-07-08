@@ -3,7 +3,8 @@ const request = require("request-promise")
 
 const app = express()
 const port = 3000
-const rss_prefix = `<?xml version="1.0" encoding="utf-8"?>
+function rss_prefix() {
+  return `<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <atom:link href="https://mangadex.jmir.xyz/rss" rel="self" type="application/rss+xml" />
@@ -15,6 +16,7 @@ const rss_prefix = `<?xml version="1.0" encoding="utf-8"?>
     <ttl>1</ttl>
     <lastBuildDate>` + Date().toString("en-US") + `</lastBuildDate>
     `
+}
 const rss_suffix = `</channel>
 </rss>`
 app.get("/", (req, res) => {
@@ -57,7 +59,7 @@ async function latestapi() {
 }
 async function rss(res) {
     const latest = await latestapi()
-    res.contentType("application/rss+xml").send(rss_prefix + latest + rss_suffix)
+    res.contentType("application/rss+xml").send(rss_prefix() + latest + rss_suffix)
       
 }
 app.listen(port)
